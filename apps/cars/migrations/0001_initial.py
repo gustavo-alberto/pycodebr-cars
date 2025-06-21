@@ -8,41 +8,45 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Brand',
+            name="Brand",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=200)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='CarInventory',
+            name="CarInventory",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('cars_count', models.IntegerField()),
-                ('cars_value', models.FloatField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("cars_count", models.IntegerField()),
+                ("cars_value", models.FloatField()),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'ordering': ['-created_at'],
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Car',
+            name="Car",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('model', models.CharField(max_length=200)),
-                ('factory_year', models.IntegerField(blank=True, null=True)),
-                ('model_year', models.IntegerField(blank=True, null=True)),
-                ('plate', models.CharField(blank=True, max_length=10, null=True)),
-                ('value', models.FloatField(blank=True, null=True)),
-                ('photo', models.ImageField(blank=True, null=True, upload_to='cars/')),
-                ('bio', models.TextField(blank=True, null=True)),
-                ('brand', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='car_brand', to='cars.brand')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("model", models.CharField(max_length=200)),
+                ("factory_year", models.IntegerField(blank=True, null=True)),
+                ("model_year", models.IntegerField(blank=True, null=True)),
+                ("plate", models.CharField(blank=True, max_length=10, null=True)),
+                ("value", models.FloatField(blank=True, null=True)),
+                ("photo", models.ImageField(blank=True, null=True, upload_to="cars/")),
+                ("bio", models.TextField(blank=True, null=True)),
+                (
+                    "brand",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT, related_name="car_brand", to="cars.brand"
+                    ),
+                ),
             ],
         ),
     ]
