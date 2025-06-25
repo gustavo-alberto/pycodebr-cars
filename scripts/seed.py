@@ -41,7 +41,7 @@ def run(*args):
             model_year=2021,
             plate=f"ABC{len(car_model)}{len(brand_name)}",
             value=50000.0 + len(brand_name) * 1000,
-            bio=f"The {car_model} from {brand_name} is a popular and best-selling car in Brazil.",
+            bio=f"O {car_model} da {brand_name} é um carro popular e um dos mais vendidos do Brasil.",
         )
 
     print("Seed completed!")
