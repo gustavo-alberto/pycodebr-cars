@@ -12,6 +12,7 @@ if [ "$MODE" = "dev" ]; then
 
 elif [ "$MODE" = "prod" ]; then
   echo "Starting uWSGI server (production mode)..."
+  python manage.py collectstatic --noinput
   uwsgi --http :8000 --module core.wsgi --chmod-socket=666
 
 else
